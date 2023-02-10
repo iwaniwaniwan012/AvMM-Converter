@@ -161,7 +161,7 @@ Rd_Valid: process(AvMM_Clk)
 							AvMM_Write 	<= '0';
 							if RMW_Data.Cmd = '1' then
 								current_state 	<= WRITE_AVMM;
-								RMW_Data.RdData <= AvMM_Readdata;
+								--RMW_Data.RdData <= AvMM_Readdata;
 								Rd_Data_Valid_Out <= '0';
 							else
 								Rd_Data_Out 		<= AvMM_Readdata;

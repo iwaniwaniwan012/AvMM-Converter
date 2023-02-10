@@ -50,7 +50,7 @@ signal AvMM_Data_Cnt : integer range 0 to (AVMM_DATA_WIDTH-1) := 0;
 
 begin
 
-m_AvMM_RMW: entity work.AvalonMM_RMW
+m_AvMM_RMW: entity work.AvMM_RMW
 	generic map (
 		Addr_Width 			=> AVMM_ADDR_WIDTH
 	)
