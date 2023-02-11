@@ -103,11 +103,13 @@ process(AvMM_Clk) is
 								Rcfg_Done 		<= '1';
 								current_state <= IDLE_ST;
 							else
+								current_state <= WORK_ST;
 								AvMM_Data_Cnt 	<= AvMM_Data_Cnt + 1;
 							end if;
 							wire_rmw_en <= '0';
 						else
 							wire_rmw_en <= '1';
+							current_state <= WAIT_ST;
 						end if;
 						
 						wire_rmw_cmd 				<= AvMM_Data(AvMM_Data_Cnt).Cmd;
@@ -115,7 +117,6 @@ process(AvMM_Clk) is
 						wire_rmw_wr_data			<= AvMM_Data(AvMM_Data_Cnt).Wr_Data;
 						wire_rmw_wr_data_mask 	<= AvMM_Data(AvMM_Data_Cnt).Wr_Data_Mask;
 						
-						current_state <= WAIT_ST;
 						
 					when WAIT_ST =>
 					
